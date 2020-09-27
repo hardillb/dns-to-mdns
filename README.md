@@ -13,7 +13,7 @@ $ node index.js 8.8.8.8
 To allow running as a normal user and still binding to port 53 run the following.
 
 ```
-sudo setcap CAP_NET_BIND_SERVICE=+eip `which node`
+$ sudo setcap CAP_NET_BIND_SERVICE=+eip `which node`
 ```
 
 Be aware this will allow ANY nodejs app to bind to system ports.
