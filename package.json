@@ -1,0 +1,26 @@
+{
+  "name": "dns-to-mdns",
+  "version": "0.0.1",
+  "description": "Bridge DNS requests to mDNS ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hardillb/dns-to-mdns.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hardillb/dns-to-mdns/issues"
+  },
+  "keywords": [
+    "mdns",
+    "dns"
+  ],
+  "author": "hardillb@gmail.com",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "dns-packet": "^5.2.1",
+    "mdns-resolver": "file:../mdns-resolver"
+  }
+}
