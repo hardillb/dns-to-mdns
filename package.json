@@ -21,6 +21,6 @@
   "license": "Apache-2.0",
   "dependencies": {
     "dns-packet": "^5.2.1",
-    "mdns-resolver": "file:../mdns-resolver"
+    "mdns-resolver": "^1.0.0"
   }
 }
