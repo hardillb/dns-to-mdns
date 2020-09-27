@@ -1,21 +1,25 @@
 # dns-to-mdns
 
-A bridge to conver normal DNS requests to mDNS requests
+A proxy to convert normal DNS requests to mDNS requests on the local LAN while forwarding other requests upstream.
 
 ## Running
 
-```
-$ node index.js 
-```
-
-You can change the port that the bridge listens on by exporting the `DNS_PORT` environment variable
+You need to pass the upstream DNS IP address on the command line
 
 ```
-$ DNS_PORT=5300 node index.js
+$ node index.js 8.8.8.8
 ```
 
-## CNAME Support
+To allow running as a normal user and still binding to port 53 run the following.
 
-I'm waiting on the following pull request to be merged to enable support for resolving CNAMES
+```
+sudo setcap CAP_NET_BIND_SERVICE=+eip `which node`
+```
 
-https://github.com/oznu/mdns-resolver/pull/2
+Be aware this will allow ANY nodejs app to bind to system ports.
+
+Otherwise you can change the port that the bridge listens on by exporting the `DNS_PORT` environment variable
+
+```
+$ DNS_PORT=5300 node index.js 8.8.8.8
+```
