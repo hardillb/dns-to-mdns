@@ -40,16 +40,16 @@ server.on('message', (msg, remote) => {
 				ttl: 30,
 				data: addr
 			})
-			server.send(dnsPacket.encode(response), remote.port)
+			server.send(dnsPacket.encode(response), remote.port, remote.address)
 		})
 		.catch (err => {
-			server.send(dnsPacket.encode(response), remote.port)
+			server.send(dnsPacket.encode(response), remote.port, remote.address)
 		})
 	} else if (upstream) {
 		const proxySocket = dgram.createSocket('udp4')
 
 		proxySocket.on('message', message => {
-		  server.send(message, remote.port)
+		  server.send(message, remote.port, remote.address)
 		})
 
 		proxySocket.send(msg, 0, msg.length, 53, upstream)
